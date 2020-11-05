@@ -16,9 +16,9 @@ public class HotelController {
 
     @PostConstruct
     public void fillDatabase() {
-        hotelRepository.save(new Hotel("h1", "Sprinton Palace", "Geel", "Geelsebaan", 52));
-        hotelRepository.save(new Hotel("h25", "Hotelleke aan zee", "Oostende", "Oostendsebaan", 12));
-        hotelRepository.save(new Hotel("h29", "De Scheve Brug", "Brugge", "Brugsebaan", 2));
+        hotelRepository.save(new Hotel("H01", "Sprinton Palace", "Geel", "Geelsebaan", 52));
+        hotelRepository.save(new Hotel("H02", "Hotelleke aan zee", "Oostende", "Oostendsebaan", 12));
+        hotelRepository.save(new Hotel("H03", "De Scheve Brug", "Brugge", "Brugsebaan", 2));
     }
 
     @GetMapping("/hotels")
