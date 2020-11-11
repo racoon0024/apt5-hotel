@@ -3,6 +3,7 @@ package fact.it.hotel.controller;
 import fact.it.hotel.model.Hotel;
 import fact.it.hotel.repository.HotelRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.PostConstruct;
@@ -49,9 +50,14 @@ public class HotelController {
     }
 
     @DeleteMapping("/hotels/{hotelCode}")
-    public void deleteHotel(@PathVariable String hotelCode){
+    public ResponseEntity deleteHotel(@PathVariable String hotelCode){
         Hotel hotel = hotelRepository.findHotelByHotelCode(hotelCode);
-        hotelRepository.delete(hotel);
+        if (hotel != null) {
+            hotelRepository.delete(hotel);
+            return ResponseEntity.ok().build();
+        } else {
+            return ResponseEntity.notFound().build();
+        }
     }
 
 }
